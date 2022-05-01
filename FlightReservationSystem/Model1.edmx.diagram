@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2759ffd3d19840efbc17b817c5be77fb" Name="Diagram1" ZoomLevel="85">
+        <EntityTypeShape EntityType="FrsModel.Flight" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="FrsModel.Plane" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FrsModel.Reservation" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FrsModel.Seat" Width="1.5" PointX="1.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FrsModel.User" Width="1.5" PointX="7.75" PointY="3.5" IsExpanded="true" />
+        <AssociationConnector Association="FrsModel.FK_Flight_Plane" ManuallyRouted="false" />
+        <AssociationConnector Association="FrsModel.FK_Reservation_Flight" ManuallyRouted="false" />
+        <AssociationConnector Association="FrsModel.FK_Reservation_Seat" ManuallyRouted="false" />
+        <AssociationConnector Association="FrsModel.FK_Reservation_User" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

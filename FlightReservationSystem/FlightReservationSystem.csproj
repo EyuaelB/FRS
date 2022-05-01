@@ -1,0 +1,488 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E78B2398-3BC7-4015-AB23-AD05BEBBAAA6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FlightReservationSystem</RootNamespace>
+    <AssemblyName>FlightReservationSystem</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icons8_accounting.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Flight.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Account Controls\CreateAccountControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Account Controls\CreateAccountControl.Designer.cs">
+      <DependentUpon>CreateAccountControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Account Controls\LoginControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Account Controls\LoginControl.Designer.cs">
+      <DependentUpon>LoginControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminControls\AdminDashboardControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminControls\AdminDashboardControl.Designer.cs">
+      <DependentUpon>AdminDashboardControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminControls\AdminFlightsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminControls\AdminFlightsControl.Designer.cs">
+      <DependentUpon>AdminFlightsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminControls\AdminReservationsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminControls\AdminReservationsControl.Designer.cs">
+      <DependentUpon>AdminReservationsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminControls\AdminUsersControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminControls\AdminUsersControl.Designer.cs">
+      <DependentUpon>AdminUsersControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminControls\PlanesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminControls\PlanesControl.Designer.cs">
+      <DependentUpon>PlanesControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminForm.Designer.cs">
+      <DependentUpon>AdminForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InfoControls\FlightDetailControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InfoControls\FlightDetailControl.Designer.cs">
+      <DependentUpon>FlightDetailControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InfoControls\FlightDetailsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InfoControls\FlightDetailsControl.Designer.cs">
+      <DependentUpon>FlightDetailsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InfoForm.Designer.cs">
+      <DependentUpon>InfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="PassengerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PassengerForm.Designer.cs">
+      <DependentUpon>PassengerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MsgBoxControls\MsgAutorizedControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MsgBoxControls\MsgAutorizedControl.Designer.cs">
+      <DependentUpon>MsgAutorizedControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MsgBoxForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MsgBoxForm.Designer.cs">
+      <DependentUpon>MsgBoxForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PassengerControls\PassDashboardControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PassengerControls\PassDashboardControl.Designer.cs">
+      <DependentUpon>PassDashboardControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PassengerControls\PassFlightsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PassengerControls\PassFlightsControl.Designer.cs">
+      <DependentUpon>PassFlightsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PassengerControls\PassReservationsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PassengerControls\PassReservationsControl.Designer.cs">
+      <DependentUpon>PassReservationsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Plane.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProfileControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ProfileControl.Designer.cs">
+      <DependentUpon>ProfileControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <DependentUpon>Resources.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="ReceptControls\ReceptDashboardControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReceptControls\ReceptDashboardControl.Designer.cs">
+      <DependentUpon>ReceptDashboardControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReceptControls\ReceptReportControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReceptControls\ReceptReportControl.Designer.cs">
+      <DependentUpon>ReceptReportControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReceptControls\ReceptReservationsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReceptControls\ReceptReservationsControl.Designer.cs">
+      <DependentUpon>ReceptReservationsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReceptControls\ReceptFlightsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReceptControls\ReceptFlightsControl.Designer.cs">
+      <DependentUpon>ReceptFlightsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReceptForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReceptForm.Designer.cs">
+      <DependentUpon>ReceptForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reservation.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Seat.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Account Controls\CreateAccountControl.resx">
+      <DependentUpon>CreateAccountControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Account Controls\LoginControl.resx">
+      <DependentUpon>LoginControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminControls\AdminDashboardControl.resx">
+      <DependentUpon>AdminDashboardControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminControls\AdminFlightsControl.resx">
+      <DependentUpon>AdminFlightsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminControls\AdminReservationsControl.resx">
+      <DependentUpon>AdminReservationsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminControls\AdminUsersControl.resx">
+      <DependentUpon>AdminUsersControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminControls\PlanesControl.resx">
+      <DependentUpon>PlanesControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminForm.resx">
+      <DependentUpon>AdminForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InfoControls\FlightDetailControl.resx">
+      <DependentUpon>FlightDetailControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InfoControls\FlightDetailsControl.resx">
+      <DependentUpon>FlightDetailsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InfoForm.resx">
+      <DependentUpon>InfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PassengerForm.resx">
+      <DependentUpon>PassengerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MsgBoxControls\MsgAutorizedControl.resx">
+      <DependentUpon>MsgAutorizedControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MsgBoxForm.resx">
+      <DependentUpon>MsgBoxForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PassengerControls\PassDashboardControl.resx">
+      <DependentUpon>PassDashboardControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PassengerControls\PassFlightsControl.resx">
+      <DependentUpon>PassFlightsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PassengerControls\PassReservationsControl.resx">
+      <DependentUpon>PassReservationsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProfileControl.resx">
+      <DependentUpon>ProfileControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReceptControls\ReceptDashboardControl.resx">
+      <DependentUpon>ReceptDashboardControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReceptControls\ReceptFlightsControl.resx">
+      <DependentUpon>ReceptFlightsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReceptControls\ReceptReportControl.resx">
+      <DependentUpon>ReceptReportControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReceptControls\ReceptReservationsControl.resx">
+      <DependentUpon>ReceptReservationsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReceptForm.resx">
+      <DependentUpon>ReceptForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Flight.datasource" />
+    <None Include="Properties\DataSources\Flight1.datasource" />
+    <None Include="Properties\DataSources\Reservation.datasource" />
+    <None Include="Properties\DataSources\User.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icons8_accounting.ico" />
+    <Content Include="Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Resources\281-2812821_user-account-management-logo-user-icon-png.png" />
+    <None Include="Resources\airplane_take_off_1080px.png" />
+    <None Include="Resources\51043119076_2cfea335ca_o %281%29.jpg" />
+    <Content Include="Resources\airplane_take_off_512px.png" />
+    <None Include="Resources\airplane_take_off_off1080px.png" />
+    <None Include="Resources\airplane_take_off_off1080px %282%29.png" />
+    <None Include="Resources\airplane_take_off_off1080px %282%291.png" />
+    <None Include="Resources\airplane_take_off_off1080px %282%292.png" />
+    <None Include="Resources\airplane_take_off_off1080px %282%293.png" />
+    <Content Include="Resources\airport_32px.png" />
+    <Content Include="Resources\airport_32px1.png" />
+    <Content Include="Resources\airport_32px2.png" />
+    <Content Include="Resources\airport_32px3.png" />
+    <Content Include="Resources\airport_64px.png" />
+    <None Include="Resources\airport_64px1.png" />
+    <None Include="Resources\airport_64px2.png" />
+    <Content Include="Resources\airport_80px.png" />
+    <Content Include="Resources\airport_80px1.png" />
+    <None Include="Resources\aviation-airport-boeing-737-aircraft-white-and-yellow-airplane-wallpaper-preview.jpg" />
+    <Content Include="Resources\boarding_pass_480px.png" />
+    <None Include="Resources\booking_108dddfd0px.png" />
+    <None Include="Resources\checked_96px.png" />
+    <None Include="Resources\booking_1080px.png" />
+    <None Include="Resources\booking_1080fghhfpx.png" />
+    <None Include="Resources\Boeing_787-8_Dreamliner,_All_Nippon_Airways_-_ANA_AN2064626.jpg" />
+    <None Include="Resources\Boeing_787-8_Dreamliner,_All_Nippon_Airways_-_ANA_AN20646261.jpg" />
+    <Content Include="Resources\check_in_desk_40px.png" />
+    <None Include="Resources\groups_480px.png" />
+    <None Include="Resources\groups_480px1.png" />
+    <None Include="Resources\down_squared_40px.png" />
+    <None Include="Resources\down_squared_16px.png" />
+    <None Include="Resources\circled_chevron_down_40px.png" />
+    <Content Include="Resources\home_480px.png" />
+    <Content Include="Resources\home_480px1.png" />
+    <None Include="Resources\maximize_window_50px.png" />
+    <None Include="Resources\icons8_airport.ico" />
+    <None Include="Resources\icons8_airport1.ico" />
+    <None Include="Resources\icons8_airport2.ico" />
+    <None Include="Resources\icons8_airport_64.png" />
+    <None Include="Resources\icons8_erroranotr_16.png" />
+    <None Include="Resources\icons8_erroranotr_32.png" />
+    <None Include="Resources\icons8_plusadds_16.png" />
+    <None Include="Resources\icons8_approvalhghg_256.png" />
+    <None Include="Resources\icons8_approvalhghg_64.png" />
+    <None Include="Resources\icons8_approvalhghg_641.png" />
+    <None Include="Resources\icons8_approvalhghg_48.png" />
+    <None Include="Resources\icons8_file_64.png" />
+    <None Include="Resources\icons8_report_file_64.png" />
+    <None Include="Resources\icons8_file_641.png" />
+    <None Include="Resources\icons8_save2_16.png" />
+    <None Include="Resources\icons8_save2_32.png" />
+    <None Include="Resources\icons8_save_32.png" />
+    <None Include="Resources\icons8_save_16.png" />
+    <None Include="Resources\icons8_deletehgh_32.png" />
+    <None Include="Resources\icons8_deletec_32.png" />
+    <None Include="Resources\icons8_deletec_16.png" />
+    <None Include="Resources\icons8_delete_sign_16.png" />
+    <None Include="Resources\icons8_downloading_updates02_32.png" />
+    <None Include="Resources\icons8_booking_16.png" />
+    <None Include="Resources\icons8_reservation2_16.png" />
+    <None Include="Resources\icons8_reservation2_32.png" />
+    <Content Include="Resources\user-icon-trendy-flat-style-isolated-grey-background-user-symbol-user-icon-trendy-flat-style-isolated-grey-background-123663211.jpg" />
+    <Content Include="Resources\user_512px.png" />
+    <Content Include="Resources\user_male_circle_24px.png" />
+    <Content Include="Resources\user_male_circle_24px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.SQL.Server.Compact.3.5">
+      <Visible>False</Visible>
+      <ProductName>SQL Server Compact 3.5 SP2</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
