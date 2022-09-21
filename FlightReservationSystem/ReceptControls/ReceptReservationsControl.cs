@@ -23,22 +23,22 @@ namespace FlightReservationSystem
 
         void FillDataGridView()
         {
-            using (FrsEntities db = new FrsEntities())
-            {
-                receptReservationDataGridView.DataSource = db.Reservations.ToList<Reservation>();
+            //using (FrsEntities db = new FrsEntities())
+            //{
+            //    receptReservationDataGridView.DataSource = db.Reservations.ToList<Reservation>();
 
-            }
+            //}
 
         }
 
         private void ReceptReservationsControl_Load(object sender, EventArgs e)
         {
-            if (!DesignMode)
-            {
-                FillDataGridView();
+            //if (!DesignMode)
+            //{
+            //    FillDataGridView();
 
                 
-            }
+            //}
         }
         
         private void receptReservationDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

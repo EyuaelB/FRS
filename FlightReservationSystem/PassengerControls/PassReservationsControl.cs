@@ -20,11 +20,11 @@ namespace FlightReservationSystem
 
         void FillDataGridView()
         {
-            using (FrsEntities Db = new FrsEntities())
-            {
-                User usr = Db.Users.FirstOrDefault(u => u.u_name == LoginControl.UsrName && u.pwd == LoginControl.UsrPwd);
-                passResDataGridView.DataSource = Db.Reservations.Where(r => r.user_id == usr.u_id).ToList<Reservation>();
-            }
+            //using (FrsEntities Db = new FrsEntities())
+            //{
+            //    User usr = Db.Users.FirstOrDefault(u => u.u_name == LoginControl.UsrName && u.pwd == LoginControl.UsrPwd);
+            //    passResDataGridView.DataSource = Db.Reservations.Where(r => r.user_id == usr.u_id).ToList<Reservation>();
+            //}
         }
 
         private void PassReservationsControl_Load(object sender, EventArgs e)

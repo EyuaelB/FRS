@@ -28,67 +28,95 @@ namespace FlightReservationSystem
 
         private void loginBtn_Click(object sender, EventArgs e)
         {
-            if (loginNameTxt.Text != null || loginPwdTxt.Text != null)
-            {
-                UsrName = loginNameTxt.Text;
-                UsrPwd = loginPwdTxt.Text;
-               
-            }
 
-            using (FrsEntities f = new FrsEntities())
-            {
-               
-                User user = f.Users.FirstOrDefault(u => u.u_name == loginNameTxt.Text && u.pwd == loginPwdTxt.Text );
-                UsrPassID = user.pass_id;
-                UsrEmail = user.email;
-                UsrTel = user.tel;
-                UsrRole = user.role;
-                UsrId = user.u_id;
-                if (user != null)                  
-                {
-                    if (user.u_name == loginNameTxt.Text)
-                    {
-                        if (user.pwd == loginPwdTxt.Text)
-                        {
+            //Uncomment these individually to explore UI
 
-                            if (user.role == "Admin")
-                            {
-                                var adm = new AdminForm();
-                                adm.Show();
-                                this.FindForm().Hide();
 
-                            }
-                            else if (user.role == "Pass")
-                            {
+            //1)
+                var adm = new AdminForm();
+                adm.Show();
+                this.FindForm().Hide();
 
-                                var pass = new PassengerForm();
-                                pass.Show();
-                                this.FindForm().Hide();
-                            }
-                            else if (user.role == "Recept")
-                            {
-                                var pass = new ReceptForm();
-                                pass.Show();
-                                this.FindForm().Hide();
-                            }
+            //2)
+            //var pass = new PassengerForm();
+            //pass.Show();
+            //this.FindForm().Hide();
 
-                        }
-                    }
-                    else 
-                    {
-                        MsgBoxForm msg = new MsgBoxForm();
-                        msg.Show();
- 
-                    }
-                }
+            
+            //3)
+            //var pass = new ReceptForm();
+            //pass.Show();
+            //this.FindForm().Hide();
 
-                else
-                {
-                    MsgBoxForm msg = new MsgBoxForm();
-                    msg.Show();
-                }
+            //4)
+            //MsgBoxForm msg = new MsgBoxForm();
+            //msg.Show();
 
-            }
+
+
+
+
+            //if (loginNameTxt.Text != null || loginPwdTxt.Text != null)
+            //{
+            //    UsrName = loginNameTxt.Text;
+            //    UsrPwd = loginPwdTxt.Text;
+
+            //}
+
+            //using (FrsEntities f = new FrsEntities())
+            //{
+
+            //    User user = f.Users.FirstOrDefault(u => u.u_name == loginNameTxt.Text && u.pwd == loginPwdTxt.Text );
+            //    UsrPassID = user.pass_id;
+            //    UsrEmail = user.email;
+            //    UsrTel = user.tel;
+            //    UsrRole = user.role;
+            //    UsrId = user.u_id;
+            //    if (user != null)                  
+            //    {
+            //        if (user.u_name == loginNameTxt.Text)
+            //        {
+            //            if (user.pwd == loginPwdTxt.Text)
+            //            {
+
+            //                if (user.role == "Admin")
+            //                {
+            //                    var adm = new AdminForm();
+            //                    adm.Show();
+            //                    this.FindForm().Hide();
+
+            //                }
+            //                else if (user.role == "Pass")
+            //                {
+
+            //                    var pass = new PassengerForm();
+            //                    pass.Show();
+            //                    this.FindForm().Hide();
+            //                }
+            //                else if (user.role == "Recept")
+            //                {
+            //                    var pass = new ReceptForm();
+            //                    pass.Show();
+            //                    this.FindForm().Hide();
+            //                }
+
+            //            }
+            //        }
+            //        else 
+            //        {
+            //            MsgBoxForm msg = new MsgBoxForm();
+            //            msg.Show();
+
+            //        }
+            //    }
+
+            //    else
+            //    {
+            //        MsgBoxForm msg = new MsgBoxForm();
+            //        msg.Show();
+            //    }
+
+            //}
         }
         private void Placeholder_Enter(object sender, EventArgs e)
         {
@@ -107,6 +135,7 @@ namespace FlightReservationSystem
                 box.Text = a;
             }
         }
+
 
     }
 }

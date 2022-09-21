@@ -26,16 +26,16 @@ namespace FlightReservationSystem
 
      private void CountersOn() 
         {
-            if (!DesignMode)
-            {
-                using (FrsEntities Db = new FrsEntities())
-                {
-                    List<Reservation> revs = Db.Reservations.Where(r=> r.user_id == LoginControl.UsrId).ToList<Reservation>();
-                    totalReservationsCountLbl.Text = revs.Count().ToString();  
+            //if (!DesignMode)
+            //{
+            //    using (FrsEntities Db = new FrsEntities())
+            //    {
+            //        List<Reservation> revs = Db.Reservations.Where(r=> r.user_id == LoginControl.UsrId).ToList<Reservation>();
+            //        totalReservationsCountLbl.Text = revs.Count().ToString();  
 
-                }
+            //    }
 
-            }
+            //}
             
         }
 

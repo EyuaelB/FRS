@@ -18,15 +18,15 @@ namespace FlightReservationSystem
 
         void FillDataGrid()
         {
-            using(FrsEntities Db = new FrsEntities())
-            {	
-                adminResGridView.DataSource = Db.Reservations.ToList<Reservation>();
-            }           
+            //    using(FrsEntities Db = new FrsEntities())
+            //    {	
+            //        adminResGridView.DataSource = Db.Reservations.ToList<Reservation>();
+            //    }           
         }
 
-       
 
-        private void AdminReservationsControl_Load(object sender, EventArgs e)
+
+    private void AdminReservationsControl_Load(object sender, EventArgs e)
         {
             if (!DesignMode)
             {

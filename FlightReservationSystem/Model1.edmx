@@ -5,134 +5,134 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="FrsModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
-        <EntityContainer Name="FrsModelStoreContainer">
-          <EntitySet Name="Flight" EntityType="FrsModel.Store.Flight" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Plane" EntityType="FrsModel.Store.Plane" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Reservation" EntityType="FrsModel.Store.Reservation" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Seat" EntityType="FrsModel.Store.Seat" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="User" EntityType="FrsModel.Store.User" store:Type="Tables" Schema="dbo" />
-          <AssociationSet Name="FK_Flight_Plane" Association="FrsModel.Store.FK_Flight_Plane">
-            <End Role="Plane" EntitySet="Plane" />
-            <End Role="Flight" EntitySet="Flight" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reservation_Flight" Association="FrsModel.Store.FK_Reservation_Flight">
-            <End Role="Flight" EntitySet="Flight" />
-            <End Role="Reservation" EntitySet="Reservation" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reservation_Seat" Association="FrsModel.Store.FK_Reservation_Seat">
-            <End Role="Seat" EntitySet="Seat" />
-            <End Role="Reservation" EntitySet="Reservation" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Reservation_User" Association="FrsModel.Store.FK_Reservation_User">
-            <End Role="User" EntitySet="User" />
-            <End Role="Reservation" EntitySet="Reservation" />
-          </AssociationSet>
-        </EntityContainer>
-        <EntityType Name="Flight">
-          <Key>
-            <PropertyRef Name="f_id" />
-          </Key>
-          <Property Name="f_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="flightTime" Type="smalldatetime" Nullable="false" />
-          <Property Name="flightStatus" Type="nvarchar" Nullable="false" MaxLength="50" />
-          <Property Name="flightPilot" Type="nvarchar" Nullable="false" MaxLength="50" />
-          <Property Name="flightType" Type="nvarchar" Nullable="false" MaxLength="50" />
-          <Property Name="plane_id" Type="int" Nullable="false" />
-          <Property Name="departure" Type="nvarchar" Nullable="false" MaxLength="50" />
-          <Property Name="destination" Type="nvarchar" Nullable="false" MaxLength="50" />
-          <Property Name="flightPrice" Type="decimal" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Plane">
-          <Key>
-            <PropertyRef Name="p_id" />
-          </Key>
-          <Property Name="p_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="p_name" Type="nvarchar" MaxLength="50" />
-          <Property Name="numOfBusSeats" Type="int" />
-          <Property Name="numOfEcoSeats" Type="int" />
-          <Property Name="numOfFirstClassSeats" Type="int" />
-          <Property Name="numOfPremiumSeats" Type="int" />
-        </EntityType>
-        <EntityType Name="Reservation">
-          <Key>
-            <PropertyRef Name="r_id" />
-          </Key>
-          <Property Name="r_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="rStatus" Type="nvarchar" Nullable="false" MaxLength="50" />
-          <Property Name="flight_id" Type="int" />
-          <Property Name="seat_id" Type="int" />
-          <Property Name="user_id" Type="int" />
-          <Property Name="seatNo" Type="int" />
-        </EntityType>
-        <EntityType Name="Seat">
-          <Key>
-            <PropertyRef Name="s_id" />
-          </Key>
-          <Property Name="s_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="seatPrice" Type="decimal" />
-          <Property Name="seatType" Type="nvarchar" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="User">
-          <Key>
-            <PropertyRef Name="u_id" />
-          </Key>
-          <Property Name="u_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="u_name" Type="nvarchar" MaxLength="50" />
-          <Property Name="pwd" Type="nvarchar" MaxLength="50" />
-          <Property Name="email" Type="nvarchar" MaxLength="50" />
-          <Property Name="tel" Type="nvarchar" MaxLength="50" />
-          <Property Name="role" Type="nvarchar" MaxLength="50" />
-          <Property Name="pass_id" Type="nvarchar" MaxLength="50" />
-        </EntityType>
-        <Association Name="FK_Flight_Plane">
-          <End Role="Plane" Type="FrsModel.Store.Plane" Multiplicity="1" />
-          <End Role="Flight" Type="FrsModel.Store.Flight" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Plane">
-              <PropertyRef Name="p_id" />
-            </Principal>
-            <Dependent Role="Flight">
-              <PropertyRef Name="plane_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reservation_Flight">
-          <End Role="Flight" Type="FrsModel.Store.Flight" Multiplicity="0..1" />
-          <End Role="Reservation" Type="FrsModel.Store.Reservation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Flight">
-              <PropertyRef Name="f_id" />
-            </Principal>
-            <Dependent Role="Reservation">
-              <PropertyRef Name="flight_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reservation_Seat">
-          <End Role="Seat" Type="FrsModel.Store.Seat" Multiplicity="0..1" />
-          <End Role="Reservation" Type="FrsModel.Store.Reservation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Seat">
-              <PropertyRef Name="s_id" />
-            </Principal>
-            <Dependent Role="Reservation">
-              <PropertyRef Name="seat_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Reservation_User">
-          <End Role="User" Type="FrsModel.Store.User" Multiplicity="0..1" />
-          <End Role="Reservation" Type="FrsModel.Store.Reservation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="u_id" />
-            </Principal>
-            <Dependent Role="Reservation">
-              <PropertyRef Name="user_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-      </Schema></edmx:StorageModels>
+  <EntityContainer Name="FrsModelStoreContainer">
+    <EntitySet Name="Flights" EntityType="FrsModel.Store.Flights" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Planes" EntityType="FrsModel.Store.Planes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Reservations" EntityType="FrsModel.Store.Reservations" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Seats" EntityType="FrsModel.Store.Seats" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users" EntityType="FrsModel.Store.Users" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Flight_Plane" Association="FrsModel.Store.FK_Flight_Plane">
+      <End Role="Plane" EntitySet="Planes" />
+      <End Role="Flight" EntitySet="Flights" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reservation_Flight" Association="FrsModel.Store.FK_Reservation_Flight">
+      <End Role="Flight" EntitySet="Flights" />
+      <End Role="Reservation" EntitySet="Reservations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reservation_Seat" Association="FrsModel.Store.FK_Reservation_Seat">
+      <End Role="Seat" EntitySet="Seats" />
+      <End Role="Reservation" EntitySet="Reservations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reservation_User" Association="FrsModel.Store.FK_Reservation_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Reservation" EntitySet="Reservations" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Flights">
+    <Key>
+      <PropertyRef Name="f_id" />
+    </Key>
+    <Property Name="f_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="flightTime" Type="datetime" Nullable="false" />
+    <Property Name="flightStatus" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="flightPilot" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="flightType" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="plane_id" Type="int" Nullable="false" />
+    <Property Name="departure" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="destination" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="flightPrice" Type="decimal" Nullable="false" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="Planes">
+    <Key>
+      <PropertyRef Name="p_id" />
+    </Key>
+    <Property Name="p_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="p_name" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="numOfBusSeats" Type="int" Nullable="true" />
+    <Property Name="numOfEcoSeats" Type="int" Nullable="true" />
+    <Property Name="numOfFirstClassSeats" Type="int" Nullable="true" />
+    <Property Name="numOfPremiumSeats" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Reservations">
+    <Key>
+      <PropertyRef Name="r_id" />
+    </Key>
+    <Property Name="rStatus" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="flight_id" Type="int" Nullable="true" />
+    <Property Name="seat_id" Type="int" Nullable="true" />
+    <Property Name="user_id" Type="int" Nullable="true" />
+    <Property Name="seatNo" Type="int" Nullable="true" />
+    <Property Name="r_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Seats">
+    <Key>
+      <PropertyRef Name="s_id" />
+    </Key>
+    <Property Name="s_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="seatPrice" Type="decimal" Nullable="true" Precision="18" Scale="0" />
+    <Property Name="seatType" Type="nvarchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="u_id" />
+    </Key>
+    <Property Name="u_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="u_name" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="pwd" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="email" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="tel" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="role" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="pass_id" Type="nvarchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_Flight_Plane">
+    <End Role="Plane" Type="FrsModel.Store.Planes" Multiplicity="1" />
+    <End Role="Flight" Type="FrsModel.Store.Flights" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Plane">
+        <PropertyRef Name="p_id" />
+      </Principal>
+      <Dependent Role="Flight">
+        <PropertyRef Name="plane_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reservation_Flight">
+    <End Role="Flight" Type="FrsModel.Store.Flights" Multiplicity="0..1" />
+    <End Role="Reservation" Type="FrsModel.Store.Reservations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Flight">
+        <PropertyRef Name="f_id" />
+      </Principal>
+      <Dependent Role="Reservation">
+        <PropertyRef Name="flight_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reservation_Seat">
+    <End Role="Seat" Type="FrsModel.Store.Seats" Multiplicity="0..1" />
+    <End Role="Reservation" Type="FrsModel.Store.Reservations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Seat">
+        <PropertyRef Name="s_id" />
+      </Principal>
+      <Dependent Role="Reservation">
+        <PropertyRef Name="seat_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reservation_User">
+    <End Role="User" Type="FrsModel.Store.Users" Multiplicity="0..1" />
+    <End Role="Reservation" Type="FrsModel.Store.Reservations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="u_id" />
+      </Principal>
+      <Dependent Role="Reservation">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="FrsModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
@@ -275,72 +275,71 @@
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="FrsModelStoreContainer" CdmEntityContainer="FrsEntities">
-          <EntitySetMapping Name="Flights">
-            <EntityTypeMapping TypeName="FrsModel.Flight">
-              <MappingFragment StoreEntitySet="Flight">
-                <ScalarProperty Name="f_id" ColumnName="f_id" />
-                <ScalarProperty Name="flightTime" ColumnName="flightTime" />
-                <ScalarProperty Name="flightStatus" ColumnName="flightStatus" />
-                <ScalarProperty Name="flightPilot" ColumnName="flightPilot" />
-                <ScalarProperty Name="flightType" ColumnName="flightType" />
-                <ScalarProperty Name="plane_id" ColumnName="plane_id" />
-                <ScalarProperty Name="departure" ColumnName="departure" />
-                <ScalarProperty Name="destination" ColumnName="destination" />
-                <ScalarProperty Name="flightPrice" ColumnName="flightPrice" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Planes">
-            <EntityTypeMapping TypeName="FrsModel.Plane">
-              <MappingFragment StoreEntitySet="Plane">
-                <ScalarProperty Name="p_id" ColumnName="p_id" />
-                <ScalarProperty Name="p_name" ColumnName="p_name" />
-                <ScalarProperty Name="numOfBusSeats" ColumnName="numOfBusSeats" />
-                <ScalarProperty Name="numOfEcoSeats" ColumnName="numOfEcoSeats" />
-                <ScalarProperty Name="numOfFirstClassSeats" ColumnName="numOfFirstClassSeats" />
-                <ScalarProperty Name="numOfPremiumSeats" ColumnName="numOfPremiumSeats" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Reservations">
-            <EntityTypeMapping TypeName="FrsModel.Reservation">
-              <MappingFragment StoreEntitySet="Reservation">
-                <ScalarProperty Name="r_id" ColumnName="r_id" />
-                <ScalarProperty Name="seatNo" ColumnName="seatNo" />
-                <ScalarProperty Name="rStatus" ColumnName="rStatus" />
-                <ScalarProperty Name="flight_id" ColumnName="flight_id" />
-                <ScalarProperty Name="seat_id" ColumnName="seat_id" />
-                <ScalarProperty Name="user_id" ColumnName="user_id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Seats">
-            <EntityTypeMapping TypeName="FrsModel.Seat">
-              <MappingFragment StoreEntitySet="Seat">
-                <ScalarProperty Name="s_id" ColumnName="s_id" />
-                <ScalarProperty Name="seatPrice" ColumnName="seatPrice" />
-                <ScalarProperty Name="seatType" ColumnName="seatType" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="FrsModel.User">
-              <MappingFragment StoreEntitySet="User">
-                <ScalarProperty Name="u_id" ColumnName="u_id" />
-                <ScalarProperty Name="u_name" ColumnName="u_name" />
-                <ScalarProperty Name="pwd" ColumnName="pwd" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="tel" ColumnName="tel" />
-                <ScalarProperty Name="role" ColumnName="role" />
-                <ScalarProperty Name="pass_id" ColumnName="pass_id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-        </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FrsModelStoreContainer" CdmEntityContainer="FrsEntities">
+    <EntitySetMapping Name="Flights">
+      <EntityTypeMapping TypeName="IsTypeOf(FrsModel.Flight)">
+        <MappingFragment StoreEntitySet="Flights">
+          <ScalarProperty Name="f_id" ColumnName="f_id" />
+          <ScalarProperty Name="flightTime" ColumnName="flightTime" />
+          <ScalarProperty Name="flightStatus" ColumnName="flightStatus" />
+          <ScalarProperty Name="flightPilot" ColumnName="flightPilot" />
+          <ScalarProperty Name="flightType" ColumnName="flightType" />
+          <ScalarProperty Name="plane_id" ColumnName="plane_id" />
+          <ScalarProperty Name="departure" ColumnName="departure" />
+          <ScalarProperty Name="destination" ColumnName="destination" />
+          <ScalarProperty Name="flightPrice" ColumnName="flightPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Planes">
+      <EntityTypeMapping TypeName="IsTypeOf(FrsModel.Plane)">
+        <MappingFragment StoreEntitySet="Planes">
+          <ScalarProperty Name="p_id" ColumnName="p_id" />
+          <ScalarProperty Name="p_name" ColumnName="p_name" />
+          <ScalarProperty Name="numOfBusSeats" ColumnName="numOfBusSeats" />
+          <ScalarProperty Name="numOfEcoSeats" ColumnName="numOfEcoSeats" />
+          <ScalarProperty Name="numOfFirstClassSeats" ColumnName="numOfFirstClassSeats" />
+          <ScalarProperty Name="numOfPremiumSeats" ColumnName="numOfPremiumSeats" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reservations">
+      <EntityTypeMapping TypeName="IsTypeOf(FrsModel.Reservation)">
+        <MappingFragment StoreEntitySet="Reservations">
+          <ScalarProperty Name="r_id" ColumnName="r_id" />
+          <ScalarProperty Name="rStatus" ColumnName="rStatus" />
+          <ScalarProperty Name="flight_id" ColumnName="flight_id" />
+          <ScalarProperty Name="seat_id" ColumnName="seat_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="seatNo" ColumnName="seatNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Seats">
+      <EntityTypeMapping TypeName="IsTypeOf(FrsModel.Seat)">
+        <MappingFragment StoreEntitySet="Seats">
+          <ScalarProperty Name="s_id" ColumnName="s_id" />
+          <ScalarProperty Name="seatPrice" ColumnName="seatPrice" />
+          <ScalarProperty Name="seatType" ColumnName="seatType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="IsTypeOf(FrsModel.User)">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="u_id" ColumnName="u_id" />
+          <ScalarProperty Name="u_name" ColumnName="u_name" />
+          <ScalarProperty Name="pwd" ColumnName="pwd" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+          <ScalarProperty Name="role" ColumnName="role" />
+          <ScalarProperty Name="pass_id" ColumnName="pass_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
@@ -355,6 +354,7 @@
         <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->

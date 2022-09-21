@@ -16,22 +16,22 @@ namespace FlightReservationSystem
             InitializeComponent();
         }
 
-        private void AdminUsersControl_Load(object sender, EventArgs e)
-        {
-            if (!DesignMode)
-            {
-                FillDataGridView();
+        private void AdminUsersControl_Load(object sender, EventArgs e) { 
+        //{
+        //    if (!DesignMode)
+        //    {
+        //        //FillDataGridView();
                 
-            }
+        //    }
 
         }
-        private void FillDataGridView()
-        {
-            using (FrsEntities Db = new FrsEntities())
-            {
-                adminUsrGridView.DataSource = Db.Users.ToList<User>();
+        //private void FillDataGridView()
+        //{
+        //    using (FrsEntities Db = new FrsEntities())
+        //    {
+        //        adminUsrGridView.DataSource = Db.Users.ToList<User>();
                 
-            }
-        }
+        //    }
+        //}
     }
 }

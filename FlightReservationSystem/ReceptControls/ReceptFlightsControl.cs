@@ -18,10 +18,10 @@ namespace FlightReservationSystem
 
         void FillDataGrid()
         {
-            using (FrsEntities Db = new FrsEntities())
-            {
-                ReceptFlghtsGridView.DataSource = Db.Flights.ToList<Flight>();
-            }
+            //using (FrsEntities Db = new FrsEntities())
+            //{
+            //    ReceptFlghtsGridView.DataSource = Db.Flights.ToList<Flight>();
+            //}
         }
 
 
@@ -29,10 +29,10 @@ namespace FlightReservationSystem
 
         private void ReceptFlightsControl_Load(object sender, EventArgs e)
         {
-            if (!DesignMode)
-            {
-                FillDataGrid();
-            }
+            //if (!DesignMode)
+            //{
+            //    FillDataGrid();
+            //}
         }
            
         

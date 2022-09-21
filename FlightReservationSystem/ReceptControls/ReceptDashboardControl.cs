@@ -18,24 +18,24 @@ namespace FlightReservationSystem
 
         private void CountersOn()
         {
-            if (!DesignMode)
-            {
-                using (FrsEntities Db = new FrsEntities())
-                {
-                    List<Reservation> revs = Db.Reservations.ToList<Reservation>();
-                    totReservationCountLbl.Text = revs.Count().ToString();
+            //if (!DesignMode)
+            //{
+            //    using (FrsEntities Db = new FrsEntities())
+            //    {
+            //        List<Reservation> revs = Db.Reservations.ToList<Reservation>();
+            //        totReservationCountLbl.Text = revs.Count().ToString();
 
-                    List<User> usrs = Db.Users.ToList<User>();
-                    totUsrCountlbl.Text = usrs.Count().ToString();
+            //        List<User> usrs = Db.Users.ToList<User>();
+            //        totUsrCountlbl.Text = usrs.Count().ToString();
 
-                    List<Flight> flights = Db.Flights.ToList<Flight>();
-                    totFlightCountLbl.Text = flights.Count().ToString();
+            //        List<Flight> flights = Db.Flights.ToList<Flight>();
+            //        totFlightCountLbl.Text = flights.Count().ToString();
 
 
 
-                }
+            //    }
 
-            }
+            //}
 
         }
 

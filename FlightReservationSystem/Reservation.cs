@@ -24,21 +24,5 @@ namespace FlightReservationSystem
         public virtual Flight Flight { get; set; }
         public virtual Seat Seat { get; set; }
         public virtual User User { get; set; }
-
-
-
-
-        public static int ReservationCount { get; set; }
-
-
-        public void BookFlight(User u, Flight f, Seat s)
-        {
-            this.user_id = u.u_id;
-            this.flight_id = f.f_id;
-            this.seat_id = s.s_id;
-            rStatus = "Active";
-
-        }
-
     }
 }

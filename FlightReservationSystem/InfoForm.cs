@@ -115,11 +115,11 @@ namespace FlightReservationSystem
                     Seat seat = Db.Seats.FirstOrDefault(s => s.seatType == xtractSID);
 
 
-                    newRes.BookFlight(usr, flight, seat);
+                    //newRes.BookFlight(usr, flight, seat);
 
-                    Db.Reservations.Add(newRes);
-                    Db.SaveChanges();
-                    MessageBox.Show("Flight Has Been Booked");
+                    //Db.Reservations.Add(newRes);
+                    //Db.SaveChanges();
+                    //MessageBox.Show("Flight Has Been Booked");
 
                 }
             }

@@ -26,20 +26,20 @@ namespace FlightReservationSystem
 
         private void PassFlightsControl_Load(object sender, EventArgs e)
         {
-            if (!this.DesignMode)
-            {
-                FillDataGridView();
+            //if (!this.DesignMode)
+            //{
+            //    FillDataGridView();
 
-            }
+            //}
         }
 
         void FillDataGridView()
         {            
-            using (FrsEntities Db = new FrsEntities())
-            {
-                 passFlightsGridView.DataSource = Db.Flights.ToList<Flight>();                
+            //using (FrsEntities Db = new FrsEntities())
+            //{
+            //     passFlightsGridView.DataSource = Db.Flights.ToList<Flight>();                
                
-            }    
+            //}    
         }
 
      

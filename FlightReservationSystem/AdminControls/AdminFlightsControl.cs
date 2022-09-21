@@ -64,7 +64,7 @@ namespace FlightReservationSystem
                 }                
                 db.SaveChanges();
                 ClearEntry();
-                FillDataGridView();
+                //FillDataGridView();
                 MessageBox.Show("Flight Has Been Added");
             }
         }
@@ -76,12 +76,12 @@ namespace FlightReservationSystem
 
          void FillDataGridView()
         {       
-           using (FrsEntities db = new FrsEntities())
-           {
+           //using (FrsEntities db = new FrsEntities())
+           //{
               
-               adminFlightsDataGridView.DataSource = db.Flights.ToList<Flight>();
+           //    adminFlightsDataGridView.DataSource = db.Flights.ToList<Flight>();
 
-           }
+           //}
         
         }
 
