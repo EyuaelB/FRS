@@ -15,17 +15,16 @@ Registration Form
 
 Admin Control Form
 
-  Profile
-  ![Login!](https://github.com/EyuaelB/FRS/blob/master/Screenshots/adminProfile.png)
+  ![Profile!](https://github.com/EyuaelB/FRS/blob/master/Screenshots/adminProfile.png)
 
-  Dashboard
   ![Dashboard!](https://github.com/EyuaelB/FRS/blob/master/Screenshots/adminDashboard.png)
 
-  Flights
-  ![](https://github.com/EyuaelB/FRS/blob/master/Screenshots/adminFlights.png)
+  ![Flights](https://github.com/EyuaelB/FRS/blob/master/Screenshots/adminFlights.png)
 
-  Reservations
-  !(https://github.com/EyuaelB/FRS/blob/master/Screenshots/adminReservations.png)
+  ![Reservations](https://github.com/EyuaelB/FRS/blob/master/Screenshots/adminReservations.png)
+  
+  ![Users](https://github.com/EyuaelB/FRS/blob/master/Screenshots/adminUsers.png)
+
 
 
 
