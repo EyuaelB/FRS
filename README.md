@@ -19,10 +19,10 @@ Admin Control Form
   ![Login!](https://github.com/EyuaelB/FRS/blob/master/Screenshots/adminProfile.png)
 
   Dashboard
-  ![Login!](https://github.com/EyuaelB/FRS/blob/master/Screenshots/adminDashboard.png)
+  ![Dashboard!](https://github.com/EyuaelB/FRS/blob/master/Screenshots/adminDashboard.png)
 
   Flights
-  !(https://github.com/EyuaelB/FRS/blob/master/Screenshots/adminFlights.png)
+  ![](https://github.com/EyuaelB/FRS/blob/master/Screenshots/adminFlights.png)
 
   Reservations
   !(https://github.com/EyuaelB/FRS/blob/master/Screenshots/adminReservations.png)
